@@ -7,10 +7,15 @@
   </ion-toolbar>
 
   <ion-toolbar>
-    <ion-searchbar showCancelButton="always" debounce="500" animated></ion-searchbar>
+    <ion-searchbar debounce="300" animated [(ngModel)]="searchText"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-virtual-scroll [items]="images | filter: searchText" approxItemHeight="500px" [trackBy]="trackByFn">
+    <ion-card *virtualItem="let item; let i = index">
+      <ion-img [src]="item.photo"></ion-img>
+      <ion-card-content>{{ item.text }}</ion-card-content>
+    </ion-card>
+  </ion-virtual-scroll>
 </ion-content>

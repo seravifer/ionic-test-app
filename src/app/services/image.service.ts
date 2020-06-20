@@ -1,37 +1,35 @@
 import { Injectable } from '@angular/core';
 import { loremIpsum } from 'lorem-ipsum';
+import { Image } from '../models/image';
 
-@Injectable({ providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class ImageService {
 
   constructor() { }
 
-  getImages() {
-    return Array(4000).fill(undefined).map((_, i) => {
+  getImages(numberOfImages: number = 4000) {
+    return Array.from({ length: numberOfImages }, (_, index) => {
       return {
-        id : i,
-        photo: this.genereteImage(i),
+        id : index,
+        photo: this.genereteImage(index),
         text: this.generateText()
-      }
+      } as Image;
     });
   }
 
   private generateText() {
     return loremIpsum({
-      count: 1,                // Number of "words", "sentences", or "paragraphs"
-      format: 'plain',         // "plain" or "html"
-      paragraphLowerBound: 3,  // Min. number of sentences per paragraph.
-      paragraphUpperBound: 7,  // Max. number of sentences per paragarph.
-      random: Math.random,     // A PRNG function
-      sentenceLowerBound: 5,   // Min. number of words per sentence.
-      sentenceUpperBound: 15,  // Max. number of words per sentence.
-      suffix: '\n',            // Line ending, defaults to "\n" or "\r\n" (win32)
-      units: 'sentences'      // paragraph(s), "sentence(s)", or "word(s)
+      format: 'plain',
+      units: 'sentences',
+      count: 1,
+      random: Math.random,
+      sentenceLowerBound: 5,
+      sentenceUpperBound: 15
     });
   }
 
   private genereteImage(seed: string | number) {
-    return `https://picsum.photos/id/${seed}/500`;
+    return `https://picsum.photos/seed/${seed}/500`;
   }
 
 }
