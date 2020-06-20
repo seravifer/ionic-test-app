@@ -19,7 +19,7 @@ export class IonicPage implements OnInit {
 
   constructor(
     private imageService: ImageService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.images = this.imageService.getImages();
