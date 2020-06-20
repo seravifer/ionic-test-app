@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Image search</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-searchbar debounce="300" animated [(ngModel)]="searchText"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <cdk-virtual-scroll-viewport itemSize="400" class="scroll" minBufferPx="800" maxBufferPx="2000" style="height: 100%">
+    <div *cdkVirtualFor="let image of images | filter: searchText; trackBy: trackByFn" class="animated lightSpeedIn">
+      <ion-card>
+        <ion-img [src]="image.photo"></ion-img>
+        <ion-card-content>{{ image.text }}</ion-card-content>
+      </ion-card>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</ion-content>
