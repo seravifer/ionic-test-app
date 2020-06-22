@@ -13,6 +13,9 @@
 </ion-header>
 
 <ion-content>
+  <div class="c-total">
+    {{ 'IONIC.TOTAL_RESULTS' | translate: { total: (images | filter: searchText.value).length} }}
+  </div>
   <ion-virtual-scroll [items]="images | filter: searchText.value" [approxItemHeight]="imageSize + 50 + 'px'" [trackBy]="trackByFn">
     <image-component *virtualItem="let image; let i = index" [image]="image" [imageSize]="imageSize" class="fade-in"  [style.min-height.px]="imageSize + 40"></image-component>
   </ion-virtual-scroll>

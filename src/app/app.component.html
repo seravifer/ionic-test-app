@@ -2,7 +2,7 @@
   <ion-menu side="start" menuId="first" contentId="main">
     <ion-header>
       <ion-toolbar color="primary">
-        <ion-title>Menu</ion-title>
+        <ion-title>{{ 'MENU.TITLE' | translate }}</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
@@ -10,17 +10,17 @@
         <ion-list>
           <ion-item routerLink="ionic" lines="full">
             <ion-icon name="logo-ionic" slot="start"></ion-icon>
-            <ion-label>Ionic Virtual Scroll</ion-label>
+            <ion-label>{{ 'MENU.IONIC' | translate }}</ion-label>
           </ion-item>
           <ion-item routerLink="material" lines="none">
             <ion-icon name="logo-angular" slot="start"></ion-icon>
-            <ion-label>CDK Virtual Scroll</ion-label>
+            <ion-label>{{ 'MENU.MATERIAL' | translate }}</ion-label>
           </ion-item>
         </ion-list>
       </ion-menu-toggle>
     </ion-content>
     <ion-footer mode="ios">
-      <div class="love">Made with <ion-icon name="heart" color="danger"></ion-icon> by Sergi Ávila</div>
+      <div class="c-love">Made with <ion-icon name="heart" color="danger"></ion-icon> by Sergi Ávila</div>
     </ion-footer>
   </ion-menu>
 

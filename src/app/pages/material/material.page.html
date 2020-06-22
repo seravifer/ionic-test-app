@@ -14,6 +14,9 @@
 
 <ion-content>
   <cdk-virtual-scroll-viewport [itemSize]="imageSize + 40" class="scroll" minBufferPx="2000" maxBufferPx="2000" style="height: 100%">
+    <div class="c-total">
+      {{ 'MATERIAL.TOTAL_RESULTS' | translate: { total: (images | filter: searchText).length} }}
+    </div>
     <image-component *cdkVirtualFor="let image of images | filter: searchText; trackBy: trackByFn" [image]="image" [imageSize]="imageSize"[style.min-height.px]="imageSize + 40"></image-component>
   </cdk-virtual-scroll-viewport>
 </ion-content>

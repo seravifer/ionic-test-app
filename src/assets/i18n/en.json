@@ -1,0 +1,19 @@
+{
+  "MENU": {
+    "TITLE": "Versions",
+    "IONIC": "Ionic Virtual Scroll",
+    "MATERIAL": "CDK Virtual Scroll"
+  },
+  "IONIC": {
+    "TITLE": "Image finder",
+    "LABEL": "IONIC version",
+    "SEARCH": "Search",
+    "TOTAL_RESULTS": "{{total}} images have been found"
+  },
+  "MATERIAL": {
+    "TITLE": "Image finder",
+    "LABEL": "CDK version",
+    "SEARCH": "Search",
+    "TOTAL_RESULTS": "{{total}} images have been found"
+  }
+}
