@@ -2,6 +2,17 @@
   display: block;
 }
 
+ion-card {
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  &:first-child {
+    margin-top: 20px;
+  }
+}
+
 img {
   display: none;
   background: #f6f6f6;
