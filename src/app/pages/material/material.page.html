@@ -13,10 +13,10 @@
 </ion-header>
 
 <ion-content>
-  <cdk-virtual-scroll-viewport itemSize="400" class="scroll" minBufferPx="800" maxBufferPx="2000" style="height: 100%">
+  <cdk-virtual-scroll-viewport itemSize="368" class="scroll" minBufferPx="2000" maxBufferPx="2000" style="height: 100%">
     <div *cdkVirtualFor="let image of images | filter: searchText; trackBy: trackByFn" class="animated lightSpeedIn">
       <ion-card>
-        <ion-img [src]="image.photo"></ion-img>
+        <img [src]="image.photo">
         <ion-card-content>{{ image.text }}</ion-card-content>
       </ion-card>
     </div>
