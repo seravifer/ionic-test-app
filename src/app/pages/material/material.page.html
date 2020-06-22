@@ -3,12 +3,12 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Image finder</ion-title>
-    <ion-badge color="danger"  slot="end">CDK version</ion-badge>
+    <ion-title>{{ 'MATERIAL.TITLE' | translate }}</ion-title>
+    <ion-badge color="danger"  slot="end">{{ 'MATERIAL.LABEL' | translate }}</ion-badge>
   </ion-toolbar>
 
   <ion-toolbar>
-    <ion-searchbar debounce="300" animated [(ngModel)]="searchText"></ion-searchbar>
+    <ion-searchbar debounce="300" animated [(ngModel)]="searchText" [placeholder]="'MATERIAL.SEARCH' | translate"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 

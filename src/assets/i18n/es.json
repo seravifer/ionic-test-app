@@ -1,0 +1,12 @@
+{
+  "IONIC": {
+    "TITLE": "Image finder",
+    "LABEL": "IONIC version",
+    "SEARCH": "Search"
+  },
+  "MATERIAL": {
+    "TITLE": "Image finder",
+    "LABEL": "CDK version",
+    "SEARCH": "Search"
+  }
+}

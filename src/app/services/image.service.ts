@@ -7,8 +7,8 @@ export class ImageService {
 
   constructor() { }
 
-  getImages(numberOfImages: number = 4000) {
-    return Array.from({ length: numberOfImages }, (_, index) => {
+  getImages(numberOfImages: number = 4000): Image[] {
+    return this.generateArrayByFn(numberOfImages, (index) => {
       return {
         id : index,
         photo: this.genereteImage(index),
@@ -17,7 +17,11 @@ export class ImageService {
     });
   }
 
-  private generateText() {
+  private generateArrayByFn<T>(length: number, mapFn: (index: number) => T): T[] {
+    return Array.from({ length }, mapFn);
+  }
+
+  private generateText(): string {
     return loremIpsum({
       format: 'plain',
       units: 'sentences',
@@ -28,7 +32,7 @@ export class ImageService {
     });
   }
 
-  private genereteImage(seed: string | number) {
+  private genereteImage(seed: string | number): string {
     return `https://picsum.photos/seed/${seed}/500`;
   }
 
