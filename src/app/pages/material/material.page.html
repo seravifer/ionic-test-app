@@ -13,10 +13,12 @@
 </ion-header>
 
 <ion-content>
-  <cdk-virtual-scroll-viewport itemSize="368" class="scroll" minBufferPx="2000" maxBufferPx="2000" style="height: 100%">
-    <div *cdkVirtualFor="let image of images | filter: searchText; trackBy: trackByFn" class="animated lightSpeedIn">
+  <cdk-virtual-scroll-viewport [itemSize]="imageSize + 40" class="scroll" minBufferPx="2000" maxBufferPx="2000" style="height: 100%">
+    <div *cdkVirtualFor="let image of images | filter: searchText; trackBy: trackByFn" class="fade-in">
       <ion-card>
-        <img [src]="image.photo">
+        <div class="loading-placeholder" [style.min-height.px]="imageSize">
+          <img [src]="image.photo">
+        </div>
         <ion-card-content>{{ image.text }}</ion-card-content>
       </ion-card>
     </div>

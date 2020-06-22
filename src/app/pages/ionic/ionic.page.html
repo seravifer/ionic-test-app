@@ -13,9 +13,9 @@
 </ion-header>
 
 <ion-content>
-  <ion-virtual-scroll [items]="images | filter: searchText" approxItemHeight="500px" [trackBy]="trackByFn">
-    <ion-card *virtualItem="let item; let i = index">
-      <ion-img [src]="item.photo"></ion-img>
+  <ion-virtual-scroll [items]="images | filter: searchText" [approxItemHeight]="imageSize + 40 + 'px'" [trackBy]="trackByFn">
+    <ion-card *virtualItem="let item; let i = index" class="fade-in">
+      <img [src]="item.photo" class="loading-placeholder" [style.min-height.px]="imageSize">
       <ion-card-content>{{ item.text }}</ion-card-content>
     </ion-card>
   </ion-virtual-scroll>

@@ -11,6 +11,7 @@ export class IonicPage implements OnInit {
 
   images: Image[];
   searchText: string;
+  imageSize: number;
 
   /**
    * ion-virtual-scroll seems to be broken
@@ -23,9 +24,15 @@ export class IonicPage implements OnInit {
 
   ngOnInit() {
     this.images = this.imageService.getImages();
+    this.setImageSize();
   }
 
   trackByFn(index: number, item: Image) {
     return item?.id ?? index;
+  }
+
+  private setImageSize() {
+    const marginOfCard = 20; // 10px + 10px
+    this.imageSize = Math.max(window.innerWidth ?? 0) - marginOfCard;
   }
 }
