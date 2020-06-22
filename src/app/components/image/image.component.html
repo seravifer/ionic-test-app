@@ -1,0 +1,5 @@
+<ion-card>
+  <img (load)="onLoadImg($event)" [src]="image.photo" [style.min-height.px]="imageSize" [ngClass]="{'fade-in': !isImgLoaded}">
+  <div class="loading-placeholder" *ngIf="isImgLoaded" [style.min-height.px]="imageSize"></div>
+  <ion-card-content>{{ image.text }}</ion-card-content>
+</ion-card>

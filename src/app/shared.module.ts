@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { FilterPipe } from './pipes/filter.pipe';
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ImageComponent } from './components/image/image.component';
+import { IonicModule } from '@ionic/angular';
+
 import localeEs from '@angular/common/locales/es';
 
 registerLocaleData(localeEs);
@@ -14,9 +17,12 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    FilterPipe
+    FilterPipe,
+    ImageComponent
   ],
   imports: [
+    CommonModule,
+    IonicModule,
     TranslateModule.forRoot({
       defaultLanguage: 'es',
       loader: {
@@ -28,6 +34,7 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   exports: [
     FilterPipe,
+    ImageComponent,
     TranslateModule
   ],
   providers: [],

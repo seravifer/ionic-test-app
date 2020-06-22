@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+img {
+  display: none;
+  background: #f6f6f6;
+  width: 100%;
+}
+
+img.fade-in {
+  display: initial;
+}

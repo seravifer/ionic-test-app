@@ -11,7 +11,7 @@ export class FilterPipe implements PipeTransform {
   };
 
   transform(list: Image[], searchText: string): Image[] {
-    if (!searchText) return list;
+    if (!searchText || searchText.trim().length === 0) return list;
     const fuse = new Fuse(list, this.fuseOptions);
     return fuse.search(searchText).map(el => el.item);
   }

@@ -1,10 +1,10 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>{{ 'MATERIAL.TITLE' | translate }}</ion-title>
-    <ion-badge color="danger"  slot="end">{{ 'MATERIAL.LABEL' | translate }}</ion-badge>
+    <ion-badge color="danger" slot="end">{{ 'MATERIAL.LABEL' | translate }}</ion-badge>
   </ion-toolbar>
 
   <ion-toolbar>
@@ -14,13 +14,6 @@
 
 <ion-content>
   <cdk-virtual-scroll-viewport [itemSize]="imageSize + 40" class="scroll" minBufferPx="2000" maxBufferPx="2000" style="height: 100%">
-    <div *cdkVirtualFor="let image of images | filter: searchText; trackBy: trackByFn" class="fade-in">
-      <ion-card>
-        <div class="loading-placeholder" [style.min-height.px]="imageSize">
-          <img [src]="image.photo">
-        </div>
-        <ion-card-content>{{ image.text }}</ion-card-content>
-      </ion-card>
-    </div>
+    <image-component *cdkVirtualFor="let image of images | filter: searchText; trackBy: trackByFn" [image]="image" [imageSize]="imageSize"[style.min-height.px]="imageSize + 40"></image-component>
   </cdk-virtual-scroll-viewport>
 </ion-content>
