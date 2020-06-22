@@ -9,7 +9,11 @@ describe('Test ImageService', () => {
   });
 
   it('getImages should return 4000 images on array', () => {
-    expect(service.getImages(4000).length).toBe(4000);
+    const images = service.getImages(4000);
+    expect(images.length).toBe(4000);
+    expect(images[0].id).toBeDefined();
+    expect(images[0].photo).toBeDefined();
+    expect(images[0].text).toBeDefined();
   });
 
 });
