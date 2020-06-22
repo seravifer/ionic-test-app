@@ -3,7 +3,7 @@ import { ImageService } from '../../services/image.service';
 import { Image } from '../../models/image';
 
 @Component({
-  selector: 'app-material',
+  selector: 'material-page',
   templateUrl: './material.page.html',
   styleUrls: ['./material.page.scss'],
 })
@@ -18,10 +18,9 @@ export class MaterialPage implements OnInit {
 
   ngOnInit() {
     this.images = this.imageService.getImages();
-    console.log(this.images);
   }
 
   trackByFn(index: number, item: Image) {
-    return item ? item.id : index;
+    return item?.id ?? index;
   }
 }

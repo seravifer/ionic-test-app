@@ -3,7 +3,7 @@ import { ImageService } from '../../services/image.service';
 import { Image } from '../../models/image';
 
 @Component({
-  selector: 'app-ionic',
+  selector: 'ionic-page',
   templateUrl: './ionic.page.html',
   styleUrls: ['./ionic.page.scss'],
 })
@@ -23,10 +23,9 @@ export class IonicPage implements OnInit {
 
   ngOnInit() {
     this.images = this.imageService.getImages();
-    console.log(this.images);
   }
 
   trackByFn(index: number, item: Image) {
-    return item ? item.id : index;
+    return item?.id ?? index;
   }
 }
