@@ -3,6 +3,9 @@ import { TestBed, async } from '@angular/core/testing';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 describe('AppComponent', () => {
 
@@ -16,6 +19,17 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [
+        HttpClientModule,
+        TranslateModule.forRoot({
+          defaultLanguage: 'es',
+          loader: {
+            provide: TranslateLoader,
+            useFactory: (http) => new TranslateHttpLoader(http, './assets/i18n/', '.json'),
+            deps: [HttpClient]
+          }
+        })
+      ],
       providers: [
         { provide: StatusBar, useValue: statusBarSpy },
         { provide: SplashScreen, useValue: splashScreenSpy }

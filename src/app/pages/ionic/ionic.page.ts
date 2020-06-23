@@ -34,6 +34,6 @@ export class IonicPage implements OnInit {
 
   private setImageSize() {
     const marginOfCard = 20; // 10px + 10px
-    this.imageSize = Math.max(window.innerWidth ?? 0) - marginOfCard;
+    this.imageSize = window.innerWidth - marginOfCard;
   }
 }
